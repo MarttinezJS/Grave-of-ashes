@@ -1,13 +1,13 @@
 [gd_scene load_steps=29 format=3 uid="uid://bowlfpjf65l3t"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1whvg"]
-[ext_resource type="Texture2D" uid="uid://4wqj5scx86lg" path="res://Assets/Sprites/Warrior_Sheet-Effect.png" id="2_kbfuv"]
+[ext_resource type="Texture2D" uid="uid://cb6fe6qc2quyg" path="res://Assets/Sprites/Warrior_Sheet-Effect.png" id="2_kbfuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wc3f"]
 size = Vector2(14, 30)
 
 [sub_resource type="Animation" id="Animation_0m8a4"]
-resource_name = "Attack 1"
+resource_name = "Attack 1 Right"
 length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -83,7 +83,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_urdj4"]
-resource_name = "Attack 2"
+resource_name = "Attack 2 Right"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -159,7 +159,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_prrm7"]
-resource_name = "Attack 3"
+resource_name = "Attack 3 Right"
 length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -264,7 +264,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xddc5"]
-resource_name = "Crouch"
+resource_name = "Crouch Right"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -304,7 +304,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nmyvf"]
-resource_name = "Crouching"
+resource_name = "Crouching Right"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -345,7 +345,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_5ixoc"]
-resource_name = "Dash"
+resource_name = "Dash Right"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -385,7 +385,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_uoj8h"]
-resource_name = "Death"
+resource_name = "Death Right"
 length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -425,7 +425,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xoj4l"]
-resource_name = "Fall"
+resource_name = "Fall Right"
 length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
@@ -466,7 +466,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_whiob"]
-resource_name = "Hang"
+resource_name = "Hang Right"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -506,7 +506,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_4uoid"]
-resource_name = "Hanging"
+resource_name = "Hanging Right"
 length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
@@ -547,7 +547,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_cgddh"]
-resource_name = "Horizontal Slide"
+resource_name = "Horizontal Slide Right"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -587,7 +587,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_b01v2"]
-resource_name = "Hurt"
+resource_name = "Hurt Right"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -627,7 +627,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_w13ru"]
-resource_name = "Idle"
+resource_name = "Idle Right"
 length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
@@ -668,7 +668,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_opbf1"]
-resource_name = "Jump"
+resource_name = "Jump Right"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -771,7 +771,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1d01j"]
-resource_name = "Stand up"
+resource_name = "Stand up Right"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -811,7 +811,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_fweb3"]
-resource_name = "Vertical Slide"
+resource_name = "Vertical Slide Right"
 length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
@@ -849,6 +849,21 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mkkqn"]
+resource_name = "Walk Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_mn3wa"]
@@ -892,42 +907,27 @@ tracks/2/keys = {
 "values": [Vector2(1.7, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_mkkqn"]
-resource_name = "Walk left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11, 12, 13]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhwo2"]
 _data = {
-"Attack 1": SubResource("Animation_0m8a4"),
-"Attack 2": SubResource("Animation_urdj4"),
-"Attack 3": SubResource("Animation_prrm7"),
+"Attack 1 Right": SubResource("Animation_0m8a4"),
+"Attack 2 Right": SubResource("Animation_urdj4"),
+"Attack 3 Right": SubResource("Animation_prrm7"),
 "Climb": SubResource("Animation_k8yk8"),
-"Crouch": SubResource("Animation_xddc5"),
-"Crouching": SubResource("Animation_nmyvf"),
-"Dash": SubResource("Animation_5ixoc"),
-"Death": SubResource("Animation_uoj8h"),
-"Fall": SubResource("Animation_xoj4l"),
-"Hang": SubResource("Animation_whiob"),
-"Hanging": SubResource("Animation_4uoid"),
-"Horizontal Slide": SubResource("Animation_cgddh"),
-"Hurt": SubResource("Animation_b01v2"),
-"Idle": SubResource("Animation_w13ru"),
-"Jump": SubResource("Animation_opbf1"),
+"Crouch Right": SubResource("Animation_xddc5"),
+"Crouching Right": SubResource("Animation_nmyvf"),
+"Dash Right": SubResource("Animation_5ixoc"),
+"Death Right": SubResource("Animation_uoj8h"),
+"Fall Right": SubResource("Animation_xoj4l"),
+"Hang Right": SubResource("Animation_whiob"),
+"Hanging Right": SubResource("Animation_4uoid"),
+"Horizontal Slide Right": SubResource("Animation_cgddh"),
+"Hurt Right": SubResource("Animation_b01v2"),
+"Idle Right": SubResource("Animation_w13ru"),
+"Jump Right": SubResource("Animation_opbf1"),
 "RESET": SubResource("Animation_cvqbr"),
-"Stand up": SubResource("Animation_1d01j"),
-"Vertical Slide": SubResource("Animation_fweb3"),
-"Walk left": SubResource("Animation_mkkqn"),
+"Stand up Right": SubResource("Animation_1d01j"),
+"Vertical Slide Right": SubResource("Animation_fweb3"),
+"Walk Left": SubResource("Animation_mkkqn"),
 "Walk rigth": SubResource("Animation_mn3wa")
 }
 

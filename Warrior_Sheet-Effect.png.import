@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb6fe6qc2quyg"
-path="res://.godot/imported/Warrior_Sheet-Effect.png-d5cb65b93baceda3df4f758ed7a5335a.ctex"
+uid="uid://rglclnsnplv3"
+path="res://.godot/imported/Warrior_Sheet-Effect.png-9375c87788f9ccb0a94036f4ee9592d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Warrior_Sheet-Effect.png"
-dest_files=["res://.godot/imported/Warrior_Sheet-Effect.png-d5cb65b93baceda3df4f758ed7a5335a.ctex"]
+source_file="res://Warrior_Sheet-Effect.png"
+dest_files=["res://.godot/imported/Warrior_Sheet-Effect.png-9375c87788f9ccb0a94036f4ee9592d5.ctex"]
 
 [params]
 
