@@ -18,10 +18,20 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		anim_tree.set("parameters/blend_position",0)
+		anim_tree.set("parameters/conditions/jump", true)
 	else:
-		anim_tree.set("parameters/blend_position",direction)
+		anim_tree.set("parameters/conditions/jump", false)
 		
+	if (direction != 0 and is_on_floor()):
+		anim_tree.set("parameters/Jump/blend_position",direction)
+		anim_tree.set("parameters/Idle/blend_position",direction)
+		anim_tree.set("parameters/Walk/blend_position",direction)
+		anim_tree.set("parameters/conditions/idle", false)
+		anim_tree.set("parameters/conditions/walk", true)
+		print(direction)
+	else:
+		anim_tree.set("parameters/conditions/walk", false)
+		anim_tree.set("parameters/conditions/idle", true)
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
