@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bg12fy6bhk587"]
+[gd_scene load_steps=86 format=3 uid="uid://bg12fy6bhk587"]
 
 [ext_resource type="Texture2D" uid="uid://bd5r774hvq4it" path="res://Assets/Sprites/StartBucle/Start Bucle1.png" id="1_6gn6j"]
 [ext_resource type="Script" path="res://Scenes/menu_principal.gd" id="1_pvbfg"]
@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://ceg57l11ucbbh" path="res://Assets/Sprites/Start/1130498.png" id="74_i5pd1"]
 [ext_resource type="Texture2D" uid="uid://cn5j5a1l37ote" path="res://Assets/Sprites/Start/1130499.png" id="75_ad6go"]
 [ext_resource type="Texture2D" uid="uid://ckkpmupe6346x" path="res://Assets/Sprites/Start/1130500.png" id="76_bs1qj"]
+[ext_resource type="FontFile" uid="uid://db84mlkoluijq" path="res://Assets/Font/Duel.ttf" id="78_elb4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7c060"]
 animations = [{
@@ -319,6 +320,55 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="Animation" id="Animation_ae25m"]
+resource_name = "Fade"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vdrqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_da3yn"]
+_data = {
+"Fade": SubResource("Animation_ae25m"),
+"RESET": SubResource("Animation_vdrqw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w7475"]
+animation = &"Fade"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87nmw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ojdvx"]
+states/Fade/node = SubResource("AnimationNodeAnimation_w7475")
+states/Fade/position = Vector2(574, 110)
+transitions = ["Start", "Fade", SubResource("AnimationNodeStateMachineTransition_87nmw")]
+
 [node name="menu_principal" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -333,3 +383,27 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7c060")
 animation = &"Start bucle"
 centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PressAnyButton")
+libraries = {
+"": SubResource("AnimationLibrary_da3yn")
+}
+
+[node name="PressAnyButton" type="Label" parent="."]
+offset_left = 383.0
+offset_top = 463.0
+offset_right = 758.0
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("78_elb4i")
+theme_override_font_sizes/font_size = 62
+text = "Press any button"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ojdvx")
+anim_player = NodePath("../AnimationPlayer")
+advance_expression_base_node = NodePath("")
+active = true

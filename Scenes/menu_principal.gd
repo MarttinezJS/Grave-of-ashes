@@ -14,4 +14,5 @@ func _process(delta):
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed:
+			$AnimationTree.active = false
 			animatedSprite.play("start")
