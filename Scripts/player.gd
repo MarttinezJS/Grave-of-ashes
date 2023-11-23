@@ -19,25 +19,17 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		anim_tree.set("parameters/conditions/jump", false)
-		if (direction != 0):
-			anim_tree.set("parameters/Jump/blend_position",direction)
-			anim_tree.set("parameters/Idle/blend_position",direction)
-			anim_tree.set("parameters/Walk/blend_position",direction)
-			anim_tree.set("parameters/conditions/idle", false)
-			anim_tree.set("parameters/conditions/walk", true)
+		if direction != 0:
+			validate_state('WALK', direction)
 		else:
-			anim_tree.set("parameters/conditions/walk", false)
-			anim_tree.set("parameters/conditions/idle", true)
+			validate_state('IDLE', direction)
+		
 
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		anim_tree.set("parameters/conditions/jump", true)
-		anim_tree.set("parameters/conditions/walk", false)
-		anim_tree.set("parameters/conditions/idle", false)
-
+		validate_state('JUMP', direction)
 
 
 	if direction:
@@ -50,4 +42,21 @@ func _physics_process(delta):
 
 func skills():
 	if Input.is_action_just_pressed('attack1'):
-		print('attack')
+		anim_tree.set('parameters/conditions/attack', true)
+
+func validate_state(state, direction):
+	if direction != 0:
+		anim_tree.set("parameters/Jump/blend_position",direction)
+		anim_tree.set("parameters/Idle/blend_position",direction)
+		anim_tree.set("parameters/Walk/blend_position",direction)
+		anim_tree.set("parameters/Attack1/blend_position",direction)
+	
+	anim_tree.set('parameters/conditions/jump', false)
+	anim_tree.set('parameters/conditions/walk', false)
+	anim_tree.set('parameters/conditions/attack', false)
+	anim_tree.set('parameters/conditions/idle', false)
+	match state:
+		'JUMP': anim_tree.set('parameters/conditions/jump', true)
+		'WALK': anim_tree.set('parameters/conditions/walk', true)
+		'ATTACK': anim_tree.set('parameters/conditions/attack', true)
+		'IDLE': anim_tree.set('parameters/conditions/idle', true)
