@@ -8,7 +8,7 @@ func _ready():
 
 func _process(delta):
 	if !animatedSprite.is_playing():
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		get_tree().change_scene_to_file("res://Scenes/NoSave.main.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):

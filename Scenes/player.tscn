@@ -1683,11 +1683,11 @@ advance_condition = &"walk"
 states/Idle/node = SubResource("AnimationNodeBlendSpace1D_5m4sd")
 states/Idle/position = Vector2(330, 100)
 states/Jump/node = SubResource("AnimationNodeBlendSpace1D_o1dkj")
-states/Jump/position = Vector2(422, -16)
+states/Jump/position = Vector2(505, -24)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_kyn16")
-states/Walk/position = Vector2(486, 100)
+states/Walk/position = Vector2(589, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ar4o5"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_nj0ux"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_hm8vg"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_ro114"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_rhlem"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_3f8h7"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_smuac")]
-graph_offset = Vector2(-34, -69)
+graph_offset = Vector2(-145.082, -68.6652)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfjl4"]
 size = Vector2(17, 30)
@@ -1716,11 +1716,12 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_3g7ei")
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/conditions/idle = false
 parameters/conditions/jump = false
 parameters/conditions/walk = false
 parameters/Idle/blend_position = 1.0
-parameters/Jump/blend_position = 0
+parameters/Jump/blend_position = -0.0135135
 parameters/Walk/blend_position = 0
 
 [node name="AttackArea" type="CollisionShape2D" parent="."]

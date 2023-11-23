@@ -391,6 +391,7 @@ libraries = {
 }
 
 [node name="PressAnyButton" type="Label" parent="."]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 463.0
 offset_right = 758.0
@@ -407,3 +408,5 @@ tree_root = SubResource("AnimationNodeStateMachine_ojdvx")
 anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("")
 active = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
