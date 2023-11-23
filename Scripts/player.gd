@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -350.0
 @onready
 var anim_tree = $AnimationTree
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,28 +18,36 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		print('Jump')
 	else:
-		print('On floor')
+		anim_tree.set("parameters/conditions/jump", false)
 		if (direction != 0):
 			anim_tree.set("parameters/Jump/blend_position",direction)
 			anim_tree.set("parameters/Idle/blend_position",direction)
 			anim_tree.set("parameters/Walk/blend_position",direction)
 			anim_tree.set("parameters/conditions/idle", false)
 			anim_tree.set("parameters/conditions/walk", true)
-			print(direction)
 		else:
 			anim_tree.set("parameters/conditions/walk", false)
 			anim_tree.set("parameters/conditions/idle", true)
-		
+
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		anim_tree.set("parameters/conditions/jump", true)
+		anim_tree.set("parameters/conditions/walk", false)
+		anim_tree.set("parameters/conditions/idle", false)
+
+
 
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	skills()
 	move_and_slide()
+
+func skills():
+	if Input.is_action_just_pressed('attack1'):
+		print('attack')
